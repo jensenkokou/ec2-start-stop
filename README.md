@@ -1,6 +1,6 @@
 ## EC2 Instance Start/Stop Script
 
-This bash script allows you to start and stop your Amazon Elastic Compute Cloud (EC2) instances in a specific AWS region. It utilizes the AWS Command Line Interface (AWS CLI) and should be configured with your AWS credentials to work properly.
+This bash script allows you to start and stop your Amazon Elastic Compute Cloud (EC2) instances in a specific AWS region. Additionally, it provides the functionality to fetch and display the public IP addresses of your instances. It utilizes the AWS Command Line Interface (AWS CLI) and should be configured with your AWS credentials to work properly. 
 
 ### Prerequisites
 
@@ -43,25 +43,38 @@ The script will provide output similar to the following when starting or stoppin
 <summary><b>Expand for Output Example</b></summary>
 
 ```json
+Starting EC2 instances...
 {
- "StartingInstances": [
-     {
-         "CurrentState": {
-             "Code": 0,
-             "Name": "pending"
-         },
-         "InstanceId": "i-02878a844a070ed15",
-         "PreviousState": {
-             "Code": 80,
-             "Name": "stopped"
-         }
-     }
- ]
+    "StartingInstances": [
+        {
+            "CurrentState": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "InstanceId": "i-1234567890abcdef0",
+            "PreviousState": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        },
+        {
+            "CurrentState": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "InstanceId": "i-0987654321fedcba0",
+            "PreviousState": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        }
+    ]
 }
 
+Public IP addresses: 203.0.113.101 - This will display on your command line. 
 
-This output confirms the initiation of the start/stop process for the specified instances and provides information about the current and previous states of each instance.
 
+This output provides information about the status of your instances and their public IP addresses in a clear and informative manner using the aws ec2 describe-instances command.
 ```
 </details>
 
